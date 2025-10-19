@@ -5,7 +5,19 @@ on:
     branches: [ main ]
 
 jobs:
+  flake8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    build-job:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      runs-on: ubuntu-latest
+      - name: Install flake8
+        run: pip install flake8 flake8-pyproject
+
+      - name: Run flake8
+        run: flake8 .
