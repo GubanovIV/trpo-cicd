@@ -1,8 +1,6 @@
-name: CI
+name: CI manual check
 
 on:
-#  pull_request:
-#    branches: [ main ]
   workflow_dispatch:
       inputs:
         logLevel:
