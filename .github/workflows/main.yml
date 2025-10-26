@@ -25,8 +25,6 @@ jobs:
 
   mypy:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -53,7 +51,12 @@ jobs:
         run: |
           pytest
 
-      - name: Create Pull Request
-        run: gh pr create -B dev -H main --title 'Merge dev into main' --body 'Created by Github action'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    create-pull-request:
+      runs-on: ubuntu-latest
+      permissions:
+        pull-requests: write
+      steps:
+        - name: Create Pull Request
+          run: gh pr create -B dev -H main --title 'Merge dev into main' --body 'Created by Github action'
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
