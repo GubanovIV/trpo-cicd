@@ -44,12 +44,18 @@ jobs:
 
   unit-test:
     runs-on: ubuntu-latest
-    permissions: write-all
+#    permissions: write-all
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Install pytest
+        run: pip install pytest
 
       - name: Install dependencies
         run: |
@@ -60,7 +66,7 @@ jobs:
         run: |
           pytest
 
-      - name: Create Pull Request
-        run: gh pr create -B dev -H main --title 'Merge dev into main' --body 'Created by Github action'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Create Pull Request
+#        run: gh pr create -B dev -H main --title 'Merge dev into main' --body 'Created by Github action'
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
