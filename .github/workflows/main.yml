@@ -24,7 +24,7 @@ jobs:
         run: pip install flake8 flake8-pyproject
 
       - name: Run flake8
-        run: flake8 .\app\
+        run: flake8 ./app/
 
   mypy:
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
 
       - name: Run mypy
         run: |
-          find .\app\ -name "*.py" -not -path "./venv/*" -not -path "./.git/*" -not -path "./.github/*" > python_files.txt
+          find ./app/ -name "*.py" -not -path "./venv/*" -not -path "./.git/*" -not -path "./.github/*" > python_files.txt
           mypy --install-types --non-interactive --strict $(cat python_files.txt)
 
       - name: Install dependencies
