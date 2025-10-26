@@ -1,13 +1,9 @@
-name: CI Check
+name: CI Check dev
 
 on:
   push:
     branches:
-      - main
       - dev
-  pull_request:
-    branches:
-      - main
 
 jobs:
   flake8:
@@ -54,3 +50,13 @@ jobs:
       - name: Unit test
         run: |
           pytest
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3.10.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Auto commit from PR
+          title: 'Auto merge'
+          body: >
+            This PR is auto-generated
+          branch: main
