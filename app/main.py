@@ -1,2 +1,4 @@
 def greet() -> None:
-    print("Hello world")
+    gr = "Hello world\n"
+    for i in gr:
+        print(i, end="")
