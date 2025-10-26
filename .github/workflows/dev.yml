@@ -71,13 +71,10 @@ jobs:
       - flake8
       - mypy
       - unit-test
-    permissions: write-all
+    permissions:
+      pull-requests: write
     steps:
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Automated changes"
-          title: "Automated PR: Update content"
-          body: "This PR contains automated updates to the repository content."
-          branch: main
+      - name: create pull request
+        run: gh pr create -B base_branch -H branch_to_merge --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
