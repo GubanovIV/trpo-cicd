@@ -71,7 +71,7 @@ jobs:
       - flake8
       - mypy
       - unit-test
-#    permissions: write-all
+    permissions: write-all
     steps:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -80,5 +80,4 @@ jobs:
           commit-message: "Automated changes"
           title: "Automated PR: Update content"
           body: "This PR contains automated updates to the repository content."
-          branch: dev
-          base: main
+          branch: main
