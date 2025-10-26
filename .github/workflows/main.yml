@@ -52,11 +52,6 @@ jobs:
           pytest
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3.10.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Auto commit from PR
-          title: 'Auto merge'
-          body: >
-            This PR is auto-generated
-          branch: main
+        run: gh pr create -B dev -H main --title 'Merge dev into main' --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
