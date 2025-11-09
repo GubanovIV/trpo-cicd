@@ -15,7 +15,7 @@ class Test:
         """
         return a+b
 
-    def b_method(self, a, b) -> int:
+    def b_method(self, a: int, b: int) -> int:
         """Description of the function, class or method etc.
 
         Args:
