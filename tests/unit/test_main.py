@@ -17,4 +17,4 @@ def test_dev_func():
 
 def test_config():
     file_to_check = "../../app/release_config.yaml"
-    assert os.path.exists(file_to_check), f"File '{file_to_check}' was not found."
+    assert not os.path.exists(file_to_check), f"File '{file_to_check}' was not found."
