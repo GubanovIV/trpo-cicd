@@ -70,6 +70,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Install Autodocsum
+      run: pip install autodocsum
+
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
 
