@@ -75,4 +75,4 @@ jobs:
 
       - name: Generate docs
         run: |
-          .\docs\make.bat html
+          ./docs/make.bat html
