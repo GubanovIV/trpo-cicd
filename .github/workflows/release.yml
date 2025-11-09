@@ -3,7 +3,7 @@ name: CI Check dev
 on:
   push:
     branches:
-      - dev
+      - release
 
 jobs:
   flake8:
