@@ -16,4 +16,5 @@ def test_dev_func():
         assert xor(*k) == v
 
 def test_config():
-    assert os.path.exists("../../app/release_config.yaml")
+    file_to_check = "../../app/release_config.yaml"
+    assert os.path.exists(file_to_check), f"File '{file_to_check}' was not found."
