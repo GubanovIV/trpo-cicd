@@ -73,8 +73,11 @@ jobs:
     - name: Install Autodocsumm
       run: pip install autodocsumm
 
-    - name: Build HTML
-      run: ./docs/make.bat html
+    - name: Install autodocsumm
+      run: pip isntall autodocsumm
+
+    - name: Build pdf
+      run: ./docs/make html
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
