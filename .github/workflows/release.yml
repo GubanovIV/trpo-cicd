@@ -74,7 +74,7 @@ jobs:
       run: pip install autodocsumm
 
     - name: Install autodocsumm
-      run: pip isntall autodocsumm
+      run: pip install autodocsumm
 
     - name: Build pdf
       run: ./docs/make html
