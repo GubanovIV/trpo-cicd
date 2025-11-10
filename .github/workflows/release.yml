@@ -67,13 +67,14 @@ jobs:
 
   docs:
     runs-on: ubuntu-latest
+    needs: [unit-test, flake8, mypy]
     steps:
     - uses: actions/checkout@v3
 
     - name: Build HTML
       run: |
         pip install autodocsumm
-        ./docs/make html
+        ./docs/make.bat html
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
